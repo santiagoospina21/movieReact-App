@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import Card from "../../card/card.component";
 
@@ -14,6 +14,22 @@ import {
 } from "./home.styles";
 
 const Home = ({ movies }) => {
+  const [searchField, setSearchField] = useState("");
+  const [moviesFilter, setMoviesFilter] = useState(movies);
+  const [currentButton, setCurrentButton] = useState("");
+
+  useEffect(() => {
+    const newMovies = movies.filter((movie) =>
+      movie.original_title.toLowerCase().includes(searchField)
+    );
+    setMoviesFilter(newMovies);
+  }, [searchField, setMoviesFilter, movies]);
+
+  const onChangeSearch = (event) => {
+    const searchFieldString = event.target.value.toLowerCase();
+    setSearchField(searchFieldString);
+  };
+
   return (
     <Fragment>
       <Title>
@@ -24,7 +40,10 @@ const Home = ({ movies }) => {
         </p>
       </Title>
       <InputSearch>
-        <Input placeholder="Search Movies or TV Shows"></Input>
+        <Input
+          placeholder="Search Movies or TV Shows"
+          onChange={onChangeSearch}
+        ></Input>
       </InputSearch>
 
       <ButtonsContainer>
@@ -34,9 +53,9 @@ const Home = ({ movies }) => {
       </ButtonsContainer>
       <AllContainer>
         {movies ? (
-          movies.filter((_, i) => i < 4).map((movie) => <Card movie={movie} />)
+          moviesFilter.map((movie) => <Card movie={movie} />)
         ) : (
-          <p>Loading...</p>
+          <h1>Loading...</h1>
         )}
       </AllContainer>
     </Fragment>

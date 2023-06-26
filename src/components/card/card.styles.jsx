@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   position: relative;
   padding: 8px;
+  margin-bottom: 3rem;
 
   width: 282px;
   height: 500px;
@@ -16,6 +17,7 @@ export const CardContainer = styled.div`
   backdrop-filter: blur(40px);
 
   border-radius: 12px;
+  cursor: pointer;
 `;
 
 export const Footer = styled.div`

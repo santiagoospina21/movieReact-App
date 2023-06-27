@@ -1,8 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import SearchIcon from "../../../img/search-normal.png";
-
-import Star from "../../../img/star.svg";
 
 export const Title = styled.div`
   color: white;
@@ -66,7 +64,7 @@ export const ButtonAll = styled.div`
   align-items: center;
   justify-content: center;
   padding: 8px 32px;
-  background: #7b6ef6;
+
   border-radius: 8px;
   width: 85px;
   height: 40px;
@@ -78,16 +76,20 @@ export const ButtonAll = styled.div`
   letter-spacing: 0.02em;
   color: #ebe9fe;
   cursor: pointer;
+
+  ${(props) =>
+    props.active &&
+    css`
+      background: #7b6ef6;
+    `}
 `;
 
 export const ButtonMovies = styled(ButtonAll)`
   width: 123px;
-  background: none;
 `;
 
 export const ButtonTV = styled(ButtonAll)`
   width: 144px;
-  background: none;
 `;
 
 //Card

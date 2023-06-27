@@ -7,11 +7,11 @@ const Card = ({ movie }) => {
     <CardContainer key={movie.id}>
       <img
         src={`${posterBaseUrl}${posterSize}${movie.poster_path}`}
-        alt={movie.original_title}
+        alt={movie.original_title ? movie.original_title : movie.name}
       ></img>
       <Vote>{movie.vote_average}</Vote>
       <Footer>
-        <p>{movie.original_title}</p>
+        <p>{movie.original_title ? movie.original_title : movie.name}</p>
       </Footer>
     </CardContainer>
   );

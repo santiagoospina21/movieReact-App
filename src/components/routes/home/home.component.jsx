@@ -1,58 +1,51 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Card from "../../card/card.component";
+import Buttons from "../../buttons/buttons.component";
+import InputSearchComponent from "../../inputsearch/inputsearch.component";
 
 import {
-  Title,
-  InputSearch,
-  Input,
-  ButtonsContainer,
-  ButtonAll,
-  ButtonMovies,
-  ButtonTV,
-  AllContainer,
-} from "./home.styles";
+  selectButtonState,
+  selectSearchField,
+  selectCurrentData,
+} from "../../../store/movies/movies.selector";
 
-const Home = ({ movies, tvShows, allData, buttonState }) => {
-  const [searchField, setSearchField] = useState("");
-  const [moviesFilter, setMoviesFilter] = useState(movies);
-  const [currentButton, setCurrentButton] = useState(buttonState);
-  const [arrayData, setArrayData] = useState([]);
+import { Title, AllContainer } from "./home.styles";
 
-  useEffect(() => {
-    if (currentButton === "all") {
-      setArrayData(allData);
-    } else if (currentButton === "movies") {
-      setArrayData(movies);
-    } else if (currentButton === "tvshows") {
-      setArrayData(tvShows);
-    }
-  }, [currentButton, allData, movies, tvShows]);
+import {
+  setButtonState,
+  setSearchField,
+} from "../../../store/movies/movies.reducer";
 
-  useEffect(() => {
-    const newMovies = arrayData.filter((movie) =>
-      movie.original_title
-        ? movie.original_title.toLowerCase().includes(searchField)
-        : movie.name.toLowerCase().includes(searchField)
-    );
-    setMoviesFilter(newMovies);
-  }, [searchField, setMoviesFilter, arrayData, currentButton]);
+const Home = () => {
+  const dispatch = useDispatch();
+
+  const buttonState = useSelector(selectButtonState);
+  const searchField = useSelector(selectSearchField);
+  const currentData = useSelector(selectCurrentData);
+
+  const moviesFilter = currentData.filter((movie) =>
+    movie.original_title
+      ? movie.original_title.toLowerCase().includes(searchField)
+      : movie.name.toLowerCase().includes(searchField)
+  );
 
   const onChangeSearch = (event) => {
     const searchFieldString = event.target.value.toLowerCase();
-    setSearchField(searchFieldString);
+    dispatch(setSearchField(searchFieldString));
   };
 
   const buttonMoviesHandler = () => {
-    setCurrentButton("movies");
+    dispatch(setButtonState("movies"));
   };
 
   const buttonTvShowsHandler = () => {
-    setCurrentButton("tvshows");
+    dispatch(setButtonState("tvshows"));
   };
 
   const buttonAllHandler = () => {
-    setCurrentButton("all");
+    dispatch(setButtonState("all"));
   };
 
   return (
@@ -64,32 +57,18 @@ const Home = ({ movies, tvShows, allData, buttonState }) => {
           movies all in one place.
         </p>
       </Title>
-      <InputSearch>
-        <Input
-          placeholder="Search Movies or TV Shows"
-          onChange={onChangeSearch}
-        ></Input>
-      </InputSearch>
 
-      <ButtonsContainer>
-        <ButtonAll active={currentButton === "all"} onClick={buttonAllHandler}>
-          All
-        </ButtonAll>
-        <ButtonMovies
-          active={currentButton === "movies"}
-          onClick={buttonMoviesHandler}
-        >
-          Movies
-        </ButtonMovies>
-        <ButtonTV
-          active={currentButton === "tvshows"}
-          onClick={buttonTvShowsHandler}
-        >
-          TV Shows
-        </ButtonTV>
-      </ButtonsContainer>
+      <InputSearchComponent onChangeSearch={onChangeSearch} />
+
+      <Buttons
+        buttonState={buttonState}
+        buttonMoviesHandler={buttonMoviesHandler}
+        buttonTvShowsHandler={buttonTvShowsHandler}
+        buttonAllHandler={buttonAllHandler}
+      />
+
       <AllContainer>
-        {movies ? (
+        {currentData ? (
           moviesFilter.map((movie) => <Card movie={movie} />)
         ) : (
           <h1>Loading...</h1>

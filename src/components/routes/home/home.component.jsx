@@ -69,7 +69,7 @@ const Home = () => {
 
       <AllContainer>
         {currentData ? (
-          moviesFilter.map((movie) => <Card movie={movie} />)
+          moviesFilter.map((movie) => <Card movie={movie} key={movie.id} />)
         ) : (
           <h1>Loading...</h1>
         )}

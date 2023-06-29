@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Star from "../../img/star.svg";
+import { Link } from "react-router-dom";
 
 //Card
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   position: relative;

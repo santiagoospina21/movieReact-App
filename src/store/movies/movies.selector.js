@@ -17,3 +17,5 @@ export const selectCurrentData = (state) => {
     return state.movies.tvShows;
   }
 };
+
+export const selectDetailsData = (state) => state.movies.detailsData;

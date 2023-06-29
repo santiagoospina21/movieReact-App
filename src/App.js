@@ -24,7 +24,6 @@ function App() {
   const buttonState = useSelector(selectButtonState);
 
   useEffect(() => {
-    const movie_id = 385687;
     try {
       const fetchData = async () => {
         //Movies
@@ -33,13 +32,6 @@ function App() {
             `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`
           );
 
-          const prueba = await fetch(
-            `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}`
-          );
-
-          const pruebaData = await prueba.json();
-
-          console.log(pruebaData);
           if (!movieResponse.ok)
             throw new Error("Error with the response API of movies");
 
@@ -90,7 +82,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
-        <Route path="movies" element={<Movies />} />
+        <Route path="movies/*" element={<Movies />} />
       </Route>
     </Routes>
   );

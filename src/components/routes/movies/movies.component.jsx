@@ -1,8 +1,14 @@
+import { Route, Routes } from "react-router-dom";
+
+import MoviesList from "../moviesList/moviesList.component";
+import DetailsMovies from "../details-movies/details-movies.component";
+
 const Movies = () => {
   return (
-    <div>
-      <h1>Soy la seccion de Movies</h1>
-    </div>
+    <Routes>
+      <Route index element={<MoviesList />}></Route>
+      <Route path="details-movie/:id" element={<DetailsMovies />}></Route>
+    </Routes>
   );
 };
 

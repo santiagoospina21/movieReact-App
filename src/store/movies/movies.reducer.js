@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   buttonState: "all",
   searchField: "",
   currentData: [],
+  detailsData: [],
 };
 
 export const moviesSlice = createSlice({
@@ -31,6 +32,9 @@ export const moviesSlice = createSlice({
     setCurrentData(state, action) {
       state.currentData = action.payload;
     },
+    setDetailsData(state, action) {
+      state.detailsData = action.payload;
+    },
   },
 });
 
@@ -41,6 +45,7 @@ export const {
   setButtonState,
   setSearchField,
   setCurrentData,
+  setDetailsData,
 } = moviesSlice.actions;
 
 export const moviesReducer = moviesSlice.reducer;

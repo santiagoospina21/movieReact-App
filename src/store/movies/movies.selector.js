@@ -19,3 +19,7 @@ export const selectCurrentData = (state) => {
 };
 
 export const selectDetailsData = (state) => state.movies.detailsData;
+
+export const selectMedia = (state) => state.movies.media;
+
+export const selectMovieList = (state) => state.movies.movieList;

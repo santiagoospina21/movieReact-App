@@ -1,40 +1,23 @@
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import Card from "../../card/card.component";
 import Buttons from "../../buttons/buttons.component";
 import InputSearchComponent from "../../inputsearch/inputsearch.component";
+import MediaFilter from "../../mediaFilter/mediaFilter.component";
 
 import {
   selectButtonState,
-  selectSearchField,
   selectCurrentData,
 } from "../../../store/movies/movies.selector";
 
 import { Title, AllContainer } from "./home.styles";
 
-import {
-  setButtonState,
-  setSearchField,
-} from "../../../store/movies/movies.reducer";
+import { setButtonState } from "../../../store/movies/movies.reducer";
 
 const Home = () => {
   const dispatch = useDispatch();
-
   const buttonState = useSelector(selectButtonState);
-  const searchField = useSelector(selectSearchField);
   const currentData = useSelector(selectCurrentData);
-
-  const moviesFilter = currentData.filter((movie) =>
-    movie.original_title
-      ? movie.original_title.toLowerCase().includes(searchField)
-      : movie.name.toLowerCase().includes(searchField)
-  );
-
-  const onChangeSearch = (event) => {
-    const searchFieldString = event.target.value.toLowerCase();
-    dispatch(setSearchField(searchFieldString));
-  };
 
   const buttonMoviesHandler = () => {
     dispatch(setButtonState("movies"));
@@ -58,7 +41,7 @@ const Home = () => {
         </p>
       </Title>
 
-      <InputSearchComponent onChangeSearch={onChangeSearch} />
+      <InputSearchComponent />
 
       <Buttons
         buttonState={buttonState}
@@ -69,7 +52,7 @@ const Home = () => {
 
       <AllContainer>
         {currentData ? (
-          moviesFilter.map((movie) => <Card movie={movie} key={movie.id} />)
+          <MediaFilter currentData={currentData} />
         ) : (
           <h1>Loading...</h1>
         )}

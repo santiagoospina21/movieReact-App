@@ -12,7 +12,6 @@ import {
   setMovies,
   setTvShows,
   setAllData,
-  setButtonState,
 } from "./store/movies/movies.reducer";
 
 import { selectButtonState } from "./store/movies/movies.selector";

@@ -18,6 +18,7 @@ export const CardContainer = styled(Link)`
   backdrop-filter: blur(40px);
 
   border-radius: 12px;
+  text-decoration: none;
   cursor: pointer;
 `;
 
@@ -25,7 +26,6 @@ export const Footer = styled.div`
   padding: 8px;
   margin-left: 8px;
 
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

@@ -4,10 +4,12 @@ const INITIAL_STATE = {
   movies: [],
   tvShows: [],
   allData: [],
+  currentData: [],
   buttonState: "all",
   searchField: "",
-  currentData: [],
   detailsData: [],
+  media: "",
+  movieList: [],
 };
 
 export const moviesSlice = createSlice({
@@ -35,6 +37,12 @@ export const moviesSlice = createSlice({
     setDetailsData(state, action) {
       state.detailsData = action.payload;
     },
+    setMedia(state, action) {
+      state.media = action.payload;
+    },
+    setMovieList(state, action) {
+      state.movieList = action.payload;
+    },
   },
 });
 
@@ -46,6 +54,8 @@ export const {
   setSearchField,
   setCurrentData,
   setDetailsData,
+  setMedia,
+  setMovieList,
 } = moviesSlice.actions;
 
 export const moviesReducer = moviesSlice.reducer;

@@ -1,11 +1,15 @@
-import React from "react";
 import Card from "../card/card.component";
 
 import { useSelector } from "react-redux";
-import { selectSearchField } from "../../store/movies/movies.selector";
+
+import {
+  selectFilterData,
+  selectSearchField,
+} from "../../store/movies/movies.selector";
 
 const MediaFilter = ({ currentData }) => {
   const searchField = useSelector(selectSearchField);
+  const filterData = useSelector(selectFilterData);
 
   const moviesFilter = currentData.filter((movie) =>
     movie.original_title
@@ -15,11 +19,9 @@ const MediaFilter = ({ currentData }) => {
 
   return (
     <>
-      {currentData ? (
-        moviesFilter.map((movie) => <Card movie={movie} key={movie.id} />)
-      ) : (
-        <h1>Loading...</h1>
-      )}
+      {filterData && filterData.length > 0
+        ? filterData.map((movie) => <Card movie={movie} key={movie.id} />)
+        : moviesFilter.map((movie) => <Card movie={movie} key={movie.id} />)}
     </>
   );
 };

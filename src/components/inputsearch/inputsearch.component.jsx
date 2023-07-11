@@ -3,13 +3,14 @@ import { Input, InputSearch } from "../inputsearch/inputsearch.styles";
 
 import { setSearchField } from "../../store/movies/movies.reducer";
 
-const InputSearchComponent = () => {
+const InputSearchComponent = ({ apiKey }) => {
   const dispatch = useDispatch();
 
   const onChangeSearch = (event) => {
     const searchFieldString = event.target.value.toLowerCase();
     dispatch(setSearchField(searchFieldString));
   };
+
   return (
     <InputSearch>
       <Input

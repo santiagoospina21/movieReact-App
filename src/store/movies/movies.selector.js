@@ -23,3 +23,7 @@ export const selectDetailsData = (state) => state.movies.detailsData;
 export const selectMedia = (state) => state.movies.media;
 
 export const selectMovieList = (state) => state.movies.movieList;
+
+export const selectQuantity = (state) => state.movies.quantity;
+
+export const selectFilterData = (state) => state.movies.filterData;

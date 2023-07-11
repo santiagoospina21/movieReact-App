@@ -13,7 +13,7 @@ const rootPersistConfig = {
 const moviesPersistConfig = {
   key: "movies",
   storage,
-  blacklist: ["searchField"],
+  blacklist: ["searchField", "filterData"],
 };
 
 const rootReducer = combineReducers({

@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 const INITIAL_STATE = {
   movies: [],
   tvShows: [],
   allData: [],
   currentData: [],
+  filterData: [],
   buttonState: "all",
   searchField: "",
   detailsData: [],
   media: "",
   movieList: [],
+  quantity: 0,
 };
 
 export const moviesSlice = createSlice({
@@ -43,6 +46,12 @@ export const moviesSlice = createSlice({
     setMovieList(state, action) {
       state.movieList = action.payload;
     },
+    setQuantity(state, action) {
+      state.quantity = action.payload;
+    },
+    setFilterData(state, action) {
+      state.filterData = action.payload;
+    },
   },
 });
 
@@ -56,6 +65,8 @@ export const {
   setDetailsData,
   setMedia,
   setMovieList,
+  setQuantity,
+  setFilterData,
 } = moviesSlice.actions;
 
 export const moviesReducer = moviesSlice.reducer;

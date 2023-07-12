@@ -15,6 +15,7 @@ import {
 } from "./store/movies/movies.reducer";
 
 import { selectButtonState } from "./store/movies/movies.selector";
+import TvShows from "./components/routes/tvshows/tvshows.component";
 
 function App() {
   const apiKey = "e1b22a6d327c893e2f41c1bc5b31242d";
@@ -82,6 +83,7 @@ function App() {
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
         <Route path="movies/*" element={<Movies />} />
+        <Route path="tvshows/*" element={<TvShows />} />
       </Route>
     </Routes>
   );

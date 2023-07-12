@@ -3,7 +3,8 @@ import { Input, InputSearch } from "../inputsearch/inputsearch.styles";
 
 import { setSearchField } from "../../store/movies/movies.reducer";
 
-const InputSearchComponent = ({ apiKey }) => {
+const InputSearchComponent = ({ type }) => {
+  if (type === undefined) type = "Movies or Tv Shows";
   const dispatch = useDispatch();
 
   const onChangeSearch = (event) => {
@@ -13,10 +14,7 @@ const InputSearchComponent = ({ apiKey }) => {
 
   return (
     <InputSearch>
-      <Input
-        placeholder="Search Movies or TV Shows"
-        onChange={onChangeSearch}
-      ></Input>
+      <Input placeholder={`Search ${type}`} onChange={onChangeSearch}></Input>
     </InputSearch>
   );
 };

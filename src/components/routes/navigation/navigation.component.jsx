@@ -8,17 +8,29 @@ import {
   NavLink,
 } from "./navigation.styles";
 import { Fragment } from "react";
+import { useDispatch } from "react-redux";
+import {
+  setFilterData,
+  setSearchField,
+} from "../../../store/movies/movies.reducer";
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+
+  const resetFilterData = () => {
+    dispatch(setSearchField(""));
+    dispatch(setFilterData([]));
+  };
+
   return (
     <Fragment>
-      <NavigationContainer>
+      <NavigationContainer onClick={resetFilterData}>
         <LogoContainer to="/">
           <img src={logo} alt="logo"></img>
         </LogoContainer>
         <NavLinks>
           <NavLink to="/movies">Movies</NavLink>
-          <NavLink>TV Shows</NavLink>
+          <NavLink to="/tvshows">TV Shows</NavLink>
           <NavLink>Favorites</NavLink>
           <NavLink>Sign In</NavLink>
         </NavLinks>

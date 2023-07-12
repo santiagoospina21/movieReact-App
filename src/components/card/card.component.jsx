@@ -26,7 +26,7 @@ const Card = ({ movie }) => {
       ></img>
       <Vote>{movie.vote_average.toFixed(1)}</Vote>
       <Footer>
-        <p>{movie.original_title ? movie.original_title : movie.name}</p>
+        <p>{movie.original_title ? movie.title : movie.name}</p>
       </Footer>
     </CardContainer>
   );

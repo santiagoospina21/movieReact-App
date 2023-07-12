@@ -44,20 +44,26 @@ const MoviesList = () => {
   const quantity = useSelector(selectQuantity);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const movieResponse = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${selectedGenre}&page=${currentPage}`
-      );
+    try {
+      const fetchMovies = async () => {
+        const movieResponse = await fetch(
+          `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${selectedGenre}&page=${currentPage}`
+        );
 
-      const dataMovies = await movieResponse.json();
+        if (!movieResponse.ok) throw Error("Error with the API data server");
 
-      dispatch(setMovieList(dataMovies.results));
-      dispatch(setFilterData([]));
-      dispatch(setQuantity(dataMovies.total_results));
-      setFilterPagesCount(400);
-    };
+        const dataMovies = await movieResponse.json();
 
-    fetchMovies();
+        dispatch(setMovieList(dataMovies.results));
+        dispatch(setFilterData([]));
+        dispatch(setQuantity(dataMovies.total_results));
+        setFilterPagesCount(400);
+      };
+
+      fetchMovies();
+    } catch (error) {
+      console.log(`Error with the server: ${error}`);
+    }
   }, [selectedGenre, currentPage, searchField]);
 
   const handleGenreChange = (event) => {
@@ -77,28 +83,33 @@ const MoviesList = () => {
   };
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      if (searchField.length > 0) {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchField}&with_genres=${selectedGenre}&page=${currentPage}`
-        );
+    try {
+      const fetchMovies = async () => {
+        if (searchField.length > 0) {
+          const response = await fetch(
+            `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchField}&with_genres=${selectedGenre}&page=${currentPage}`
+          );
 
-        if (!response.ok) return;
-        const data = await response.json();
+          if (!response.ok) throw Error("Error with the API data server");
 
-        dispatch(setFilterData(data.results));
+          const data = await response.json();
 
-        // Calcular el número total de páginas
-        const totalResults = data.total_results;
-        const resultsPerPage = data.results.length;
-        const totalPages = Math.ceil(totalResults / resultsPerPage);
+          dispatch(setFilterData(data.results));
 
-        setFilterPagesCount(totalPages);
-        dispatch(setQuantity(data.total_results));
-      }
-    };
+          // Calcular el número total de páginas
+          const totalResults = data.total_results;
+          const resultsPerPage = data.results.length;
+          const totalPages = Math.ceil(totalResults / resultsPerPage);
 
-    fetchMovies();
+          setFilterPagesCount(totalPages);
+          dispatch(setQuantity(data.total_results));
+        }
+      };
+
+      fetchMovies();
+    } catch (error) {
+      console.log(`Error with the server: ${error}`);
+    }
   }, [searchField, currentPage]);
 
   return (
@@ -109,10 +120,11 @@ const MoviesList = () => {
       </MoviesTitle>
       <Container>
         <SelectContainer>
-          <InputSearchComponent apiKey={apiKey} />
+          <InputSearchComponent type={"Movies"} />
           <SelectorComponent
             selectedGenre={selectedGenre}
             handleGenreChange={handleGenreChange}
+            type={movies}
           />
         </SelectContainer>
 

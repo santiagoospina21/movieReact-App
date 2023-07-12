@@ -12,6 +12,7 @@ const INITIAL_STATE = {
   detailsData: [],
   media: "",
   movieList: [],
+  tvShowsList: [],
   quantity: 0,
 };
 
@@ -46,6 +47,9 @@ export const moviesSlice = createSlice({
     setMovieList(state, action) {
       state.movieList = action.payload;
     },
+    setTvShowsList(state, action) {
+      state.tvShowsList = action.payload;
+    },
     setQuantity(state, action) {
       state.quantity = action.payload;
     },
@@ -67,6 +71,7 @@ export const {
   setMovieList,
   setQuantity,
   setFilterData,
+  setTvShowsList,
 } = moviesSlice.actions;
 
 export const moviesReducer = moviesSlice.reducer;

@@ -1,6 +1,7 @@
 import InputSearchComponent from "../../inputsearch/inputsearch.component";
 import MediaFilter from "../../mediaFilter/mediaFilter.component";
 import SelectorComponent from "../../selector/selector.component";
+import Modal from "../../modal/modal.component";
 
 import { useEffect, useState } from "react";
 
@@ -130,6 +131,8 @@ const MoviesList = () => {
 
         <Quantity>{`${quantity} items`}</Quantity>
       </Container>
+
+      <Modal />
 
       <AllContainer>
         <MediaFilter

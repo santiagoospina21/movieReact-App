@@ -1,9 +1,11 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Buttons from "../../buttons/buttons.component";
 import InputSearchComponent from "../../inputsearch/inputsearch.component";
 import MediaFilter from "../../mediaFilter/mediaFilter.component";
+
+import Modal from "../../modal/modal.component";
 
 import {
   selectButtonState,
@@ -49,6 +51,8 @@ const Home = () => {
         buttonTvShowsHandler={buttonTvShowsHandler}
         buttonAllHandler={buttonAllHandler}
       />
+
+      <Modal />
 
       <AllContainer>
         {currentData ? (

@@ -1,5 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
 import Star from "../../img/star.svg";
+import Likebw from "../../img/Like_bw.svg";
+import Like from "../../img/like.svg";
+
 import { Link } from "react-router-dom";
 
 //Card
@@ -52,4 +56,20 @@ export const Vote = styled.div`
   background-repeat: no-repeat;
   background-position: 0.5rem center;
   color: var(--warning-500, #ffad49);
+`;
+
+export const LikeFav = styled(Vote)`
+  z-index: 999;
+  left: 205px;
+  background: none;
+  background-repeat: no-repeat;
+
+  opacity: ${({ isHovered }) => (isHovered ? 1 : 0)};
+  transition: opacity 0.1s ease-in-out;
+
+  background-image: ${({ isLiked }) =>
+    isLiked ? css`url(${Like})` : css`url(${Likebw})`};
+
+  background-position: center;
+  background-size: 2.5rem;
 `;

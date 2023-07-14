@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import InputSearchComponent from "../../inputsearch/inputsearch.component";
 import SelectorComponent from "../../selector/selector.component";
 import MediaFilter from "../../mediaFilter/mediaFilter.component";
+import Modal from "../../modal/modal.component";
 
 import {
   selectFilterData,
@@ -116,6 +117,8 @@ const TvShowList = () => {
 
         <Quantity>{`${quantity} items`}</Quantity>
       </Container>
+
+      <Modal />
 
       <AllContainer>
         <MediaFilter

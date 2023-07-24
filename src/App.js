@@ -7,6 +7,8 @@ import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/routes/navigation/navigation.component";
 import Home from "./components/routes/home/home.component";
 import Movies from "./components/routes/movies/movies.component";
+import Favorites from "./components/routes/favorites/favorites.component";
+import SignIn from "./components/routes/sign-in/sign-in.component";
 
 import {
   setMovies,
@@ -84,6 +86,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="movies/*" element={<Movies />} />
         <Route path="tvshows/*" element={<TvShows />} />
+        <Route path="favorites" element={<Favorites />} />
+        <Route path="sign-in" element={<SignIn />}></Route>
       </Route>
     </Routes>
   );

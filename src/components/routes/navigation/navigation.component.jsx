@@ -31,8 +31,8 @@ const Navigation = () => {
         <NavLinks>
           <NavLink to="/movies">Movies</NavLink>
           <NavLink to="/tvshows">TV Shows</NavLink>
-          <NavLink>Favorites</NavLink>
-          <NavLink>Sign In</NavLink>
+          <NavLink to="/favorites">Favorites</NavLink>
+          <NavLink to="/sign-in">Sign In</NavLink>
         </NavLinks>
       </NavigationContainer>
       <Outlet />

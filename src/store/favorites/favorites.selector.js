@@ -2,4 +2,4 @@ export const selectOpenModal = (state) => state.favorites.openModal;
 
 export const selectLikeCards = (state) => state.favorites.likeCards;
 
-export const selectIsLiked = (state) => state.favorites.isLiked;
+export const selectIsWatched = (state) => state.favorites.isWatched;

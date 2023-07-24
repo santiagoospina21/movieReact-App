@@ -7,7 +7,7 @@ import {
   selectSearchField,
 } from "../../store/movies/movies.selector";
 
-const MediaFilter = ({ currentData }) => {
+const MediaFilter = ({ currentData, additionalData }) => {
   const searchField = useSelector(selectSearchField);
   const filterData = useSelector(selectFilterData);
 
@@ -20,8 +20,20 @@ const MediaFilter = ({ currentData }) => {
   return (
     <>
       {filterData && filterData.length > 0
-        ? filterData.map((movie) => <Card movie={movie} key={movie.id} />)
-        : moviesFilter.map((movie) => <Card movie={movie} key={movie.id} />)}
+        ? filterData.map((movie) => (
+            <Card
+              movie={movie}
+              key={movie.id}
+              additionalData={additionalData}
+            />
+          ))
+        : moviesFilter.map((movie) => (
+            <Card
+              movie={movie}
+              key={movie.id}
+              additionalData={additionalData}
+            />
+          ))}
     </>
   );
 };

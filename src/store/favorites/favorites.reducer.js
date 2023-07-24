@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const addLikeCard = (state, likeCard) => {
-  if (state.includes(likeCard.id)) {
+  if (state.some((card) => card.id === likeCard.id)) {
     return state.filter((card) => card.id !== likeCard.id);
   } else {
-    return [...state, likeCard];
+    return [...state, { ...likeCard, isWatched: false }];
   }
 };
 
@@ -17,7 +17,6 @@ const removeLikeCard = (state, likeCard) => {
 const INITIAL_STATE = {
   openModal: false,
   likeCards: [],
-  isLiked: false,
 };
 
 export const favoritesSlice = createSlice({
@@ -33,13 +32,17 @@ export const favoritesSlice = createSlice({
     removeCards(state, action) {
       state.likeCards = removeLikeCard(state.likeCards, action.payload);
     },
-    setIsLiked(state, action) {
-      state.isLiked = action.payload;
+    setIsWatched(state, action) {
+      const { id, isWatched } = action.payload;
+      const card = state.likeCards.find((c) => c.id === id);
+      if (card) {
+        card.isWatched = isWatched;
+      }
     },
   },
 });
 
-export const { setOpenModal, addCards, removeCards, setIsLiked } =
+export const { setOpenModal, addCards, removeCards, setIsWatched } =
   favoritesSlice.actions;
 
 export const favoritesReducer = favoritesSlice.reducer;

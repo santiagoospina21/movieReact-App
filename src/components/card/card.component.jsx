@@ -1,30 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setMedia } from "../../store/movies/movies.reducer";
+import { setIsWatched } from "../../store/favorites/favorites.reducer";
+
 import {
   addCards,
   removeCards,
   setOpenModal,
-  setIsLiked,
 } from "../../store/favorites/favorites.reducer";
-import {
-  selectLikeCards,
-  selectIsLiked,
-} from "../../store/favorites/favorites.selector";
 
-import { CardContainer, Vote, Footer, LikeFav } from "./card.styles";
+import { selectLikeCards } from "../../store/favorites/favorites.selector";
 
-const Card = ({ movie }) => {
+import { CardContainer, Vote, Footer, LikeFav, AddMedia } from "./card.styles";
+
+const Card = ({ movie, additionalData }) => {
+  const posterBaseUrl = "https://image.tmdb.org/t/p/";
+  const posterSize = "w500";
+
   const dispatch = useDispatch();
 
   const [isHovered, setIsHovered] = useState(false);
-
   const likeCards = useSelector(selectLikeCards);
 
   const [isLiked, setIsLiked] = useState(
     likeCards.some((card) => card.id === movie.id)
   );
+
+  const card = likeCards.find((card) => card.id === movie.id);
+  const isWatched = card ? card.isWatched : false;
 
   const onHandlerMedia = () => {
     if (movie.original_title) {
@@ -36,7 +40,6 @@ const Card = ({ movie }) => {
 
   const handleLikeClick = (e) => {
     e.preventDefault();
-    e.stopPropagation();
 
     if (isLiked) {
       dispatch(setOpenModal(false));
@@ -48,8 +51,12 @@ const Card = ({ movie }) => {
     setIsLiked(!isLiked);
   };
 
-  const posterBaseUrl = "https://image.tmdb.org/t/p/";
-  const posterSize = "w500";
+  const handleWatched = (e) => {
+    e.preventDefault();
+
+    dispatch(setIsWatched({ id: movie.id, isWatched: !isWatched }));
+  };
+
   return (
     <CardContainer
       key={movie.id}
@@ -57,6 +64,7 @@ const Card = ({ movie }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onHandlerMedia}
+      additionalData={additionalData}
     >
       <img
         src={`${posterBaseUrl}${posterSize}${movie.poster_path}`}
@@ -70,6 +78,11 @@ const Card = ({ movie }) => {
       ></LikeFav>
       <Footer>
         <p>{movie.original_title ? movie.title : movie.name}</p>
+        {additionalData && (
+          <AddMedia onClick={handleWatched} isWatched={isWatched}>
+            {isWatched ? "Already Watched" : "Add to watched"}
+          </AddMedia>
+        )}
       </Footer>
     </CardContainer>
   );

@@ -20,7 +20,7 @@ const moviesPersistConfig = {
 const favoritesPersistConfig = {
   key: "favorites",
   storage,
-  blacklist: ["likeCards"],
+  /*  blacklist: ["likeCards"], */
 };
 
 const rootReducer = combineReducers({

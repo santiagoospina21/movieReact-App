@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,10 +18,16 @@ import { setOpenModal } from "../../store/favorites/favorites.reducer";
 
 const Modal = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const openModal = useSelector(selectOpenModal);
 
   const onHandlerModal = () => {
+    dispatch(setOpenModal(false));
+  };
+
+  const navigateHandler = () => {
+    navigate("/favorites");
     dispatch(setOpenModal(false));
   };
 
@@ -36,7 +42,7 @@ const Modal = () => {
         <SpanModal>
           Continue exploring your favorite movies and series.
         </SpanModal>
-        <ButtonModal>Go to Favorites</ButtonModal>
+        <ButtonModal onClick={navigateHandler}>Go to Favorites</ButtonModal>
       </ModalContainer>
     </ModalOverlay>
   );

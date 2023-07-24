@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 import Star from "../../img/star.svg";
 import Likebw from "../../img/Like_bw.svg";
 import Like from "../../img/like.svg";
+import LikeSymbol from "../../img/like-symbol.svg";
+import WatchedSymbol from "../../img/watched-symbol.svg";
 
 import { Link } from "react-router-dom";
 
@@ -16,7 +18,7 @@ export const CardContainer = styled(Link)`
   margin-bottom: 3rem;
 
   width: 282px;
-  height: 500px;
+  height: ${({ additionalData }) => (additionalData ? "540px" : "500px")};
 
   background: rgba(32, 40, 62, 0.8);
   backdrop-filter: blur(40px);
@@ -72,4 +74,21 @@ export const LikeFav = styled(Vote)`
 
   background-position: center;
   background-size: 2.5rem;
+`;
+
+export const AddMedia = styled.span`
+  color: ${({ isWatched }) =>
+    isWatched ? "var(--success-400, #37D8A7)" : "var(--primary-400, #7B6EF6)"};
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+
+  background-image: ${({ isWatched }) =>
+    isWatched ? css`url(${WatchedSymbol})` : css`url(${LikeSymbol})`};
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  padding-left: 2rem;
 `;

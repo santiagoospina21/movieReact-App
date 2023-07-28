@@ -39,10 +39,19 @@ export const favoritesSlice = createSlice({
         card.isWatched = isWatched;
       }
     },
+    setFavorites(state, action) {
+      // Esta acción se utilizará para cargar los "favorites" desde Firestore
+      state.likeCards = action.payload;
+    },
   },
 });
 
-export const { setOpenModal, addCards, removeCards, setIsWatched } =
-  favoritesSlice.actions;
+export const {
+  setOpenModal,
+  addCards,
+  removeCards,
+  setIsWatched,
+  setFavorites,
+} = favoritesSlice.actions;
 
 export const favoritesReducer = favoritesSlice.reducer;

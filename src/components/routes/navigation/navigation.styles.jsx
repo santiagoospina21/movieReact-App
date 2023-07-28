@@ -27,7 +27,7 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const NavLinks = styled.div`
-  width: 524px;
+  width: 624px;
   height: 48px;
   display: flex;
   gap: 16px;

@@ -68,7 +68,7 @@ const Card = ({ movie, additionalData }) => {
     >
       <img
         src={`${posterBaseUrl}${posterSize}${movie.poster_path}`}
-        alt={movie.original_title ? movie.original_title : movie.name}
+        alt={movie.original_title ? movie.title : movie.name}
       ></img>
       <Vote>{movie.vote_average.toFixed(1)}</Vote>
       <LikeFav

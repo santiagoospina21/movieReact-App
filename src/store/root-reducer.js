@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 
 import { moviesReducer } from "./movies/movies.reducer";
 import { favoritesReducer } from "./favorites/favorites.reducer";
+import { userReducer } from "./user/user.reducer";
 
 const rootPersistConfig = {
   key: "root",
@@ -23,10 +24,15 @@ const favoritesPersistConfig = {
   /*  blacklist: ["likeCards"], */
 };
 
+const userPersistConfig = {
+  key: "user",
+  storage,
+};
+
 const rootReducer = combineReducers({
   movies: persistReducer(moviesPersistConfig, moviesReducer),
   favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
-  /* favorites: favoritesReducer, */
+  user: persistReducer(userPersistConfig, userReducer),
 });
 
 export default persistReducer(rootPersistConfig, rootReducer);

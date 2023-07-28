@@ -26,7 +26,7 @@ const MoviesDetails = ({ movies }) => {
           </Backdrop>
           <TitleContainer>
             <span>Sanflix / Movies </span>
-            <Title>{`${movies.original_title}`}</Title>
+            <Title>{`${movies.title}`}</Title>
           </TitleContainer>
           <Container>
             <img

@@ -82,6 +82,7 @@ const SignIn = () => {
     } catch (error) {
       alert("Error with the email or password");
       console.log("User sign in failed", error);
+      dispatch(setIsLoading(false));
     }
   };
 
@@ -93,7 +94,7 @@ const SignIn = () => {
   return (
     <ContainerSignin>
       <ContainerImageSignin>
-        <img src={Men} alt="image sign-in" />
+        <img src={Men} alt="image sign-in" loading="lazy" />
       </ContainerImageSignin>
 
       <ContainerLogin>

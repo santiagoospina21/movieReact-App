@@ -3,13 +3,15 @@ import { Input, InputSearch } from "../inputsearch/inputsearch.styles";
 
 import { setSearchField } from "../../store/movies/movies.reducer";
 
-const InputSearchComponent = ({ type }) => {
+const InputSearchComponent = ({ type, currentPage, setCurrentPage }) => {
   if (type === undefined) type = "Movies or Tv Shows";
   const dispatch = useDispatch();
 
   const onChangeSearch = (event) => {
     const searchFieldString = event.target.value.toLowerCase();
     dispatch(setSearchField(searchFieldString));
+
+    setCurrentPage(1);
   };
 
   return (

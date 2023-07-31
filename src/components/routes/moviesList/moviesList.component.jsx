@@ -121,7 +121,11 @@ const MoviesList = () => {
       </MoviesTitle>
       <Container>
         <SelectContainer>
-          <InputSearchComponent type={"Movies"} />
+          <InputSearchComponent
+            type={"Movies"}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
           <SelectorComponent
             selectedGenre={selectedGenre}
             handleGenreChange={handleGenreChange}
@@ -144,6 +148,7 @@ const MoviesList = () => {
         previousLabel={"< Previous"}
         nextLabel={" Next >"}
         pageCount={filterPagesCount}
+        forcePage={currentPage - 1}
         pageRangeDisplayed={5}
         marginPagesDisplayed={2}
         onPageChange={handlePageChange}

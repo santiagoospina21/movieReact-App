@@ -12,6 +12,16 @@ import SignIn from "./components/routes/sign-in/sign-in.component";
 import TvShows from "./components/routes/tvshows/tvshows.component";
 
 import { selectButtonState } from "./store/movies/movies.selector";
+import { selectCurrentUser } from "./store/user/user.selector";
+import { selectLikeCards } from "./store/favorites/favorites.selector";
+
+import { setCurrentUser } from "./store/user/user.reducer";
+import { setLikeCards } from "./store/favorites/favorites.reducer";
+import {
+  setMovies,
+  setTvShows,
+  setAllData,
+} from "./store/movies/movies.reducer";
 
 import {
   createUserDocumentFromAuth,
@@ -20,37 +30,13 @@ import {
   saveFavoritesToFirestore,
 } from "./utils/firebase/firebase.utils";
 
-import {
-  setMovies,
-  setTvShows,
-  setAllData,
-} from "./store/movies/movies.reducer";
-
-import { setCurrentUser } from "./store/user/user.reducer";
-import { selectCurrentUser } from "./store/user/user.selector";
-import { setFavorites } from "./store/favorites/favorites.reducer";
-import { selectLikeCards } from "./store/favorites/favorites.selector";
-
 function App() {
   const apiKey = "e1b22a6d327c893e2f41c1bc5b31242d";
 
   const dispatch = useDispatch();
   const buttonState = useSelector(selectButtonState);
   const currentUser = useSelector(selectCurrentUser);
-  const favorites = useSelector(selectLikeCards);
-
-  const [prevUserId, setPrevUserId] = useState(null);
-
-  /*   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
-  }, []); */
+  const likeCards = useSelector(selectLikeCards);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(async (user) => {
@@ -76,8 +62,10 @@ function App() {
       if (currentUser) {
         const favoritesData = await getFavoritesFromFirestore(currentUser);
         if (favoritesData) {
-          dispatch(setFavorites(favoritesData)); // Aquí debes tener una acción setFavorites para actualizar los "favorites" en Redux en función de los datos que recuperas de Firestore
+          dispatch(setLikeCards(favoritesData));
         }
+      } else {
+        dispatch(setLikeCards([]));
       }
     };
 
@@ -89,14 +77,12 @@ function App() {
     const saveFavoritesToFirestoreAsync = async () => {
       if (currentUser) {
         // Guarda los "favorites" en Firestore solo si el usuario está autenticado
-        saveFavoritesToFirestore(currentUser, favorites);
-
-        setPrevUserId(currentUser.uid);
+        saveFavoritesToFirestore(currentUser, likeCards);
       }
     };
 
     saveFavoritesToFirestoreAsync();
-  }, [currentUser, favorites, prevUserId]);
+  }, [likeCards]);
 
   useEffect(() => {
     try {

@@ -20,6 +20,7 @@ import {
   LogoContainer,
   NavLinks,
   NavLink,
+  Avatar,
 } from "./navigation.styles";
 
 const Navigation = () => {
@@ -51,10 +52,17 @@ const Navigation = () => {
               <NavLink as="span" onClick={signOutUser}>
                 Sign Out
               </NavLink>
+
               <NavLink>
                 {currentUser.displayName &&
                   currentUser.displayName.split(" ")[0]}
               </NavLink>
+              <Avatar>
+                <img
+                  src={`https://robohash.org/${currentUser.uid}.png`}
+                  alt="avatar_image"
+                ></img>
+              </Avatar>
             </Fragment>
           ) : (
             <NavLink to="/sign-in">Sign In</NavLink>

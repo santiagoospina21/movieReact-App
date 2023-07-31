@@ -107,7 +107,10 @@ const TvShowList = () => {
 
       <Container>
         <SelectContainer>
-          <InputSearchComponent type="Tv Shows" />
+          <InputSearchComponent
+            type="Tv Shows"
+            setCurrentPage={setCurrentPage}
+          />
           <SelectorComponent
             selectedGenre={selectedGenre}
             handleGenreChange={handleGenreChange}
@@ -130,6 +133,7 @@ const TvShowList = () => {
         previousLabel={"< Previous"}
         nextLabel={" Next >"}
         pageCount={filterPagesCount}
+        forcePage={currentPage - 1}
         pageRangeDisplayed={5}
         marginPagesDisplayed={2}
         onPageChange={handlePageChange}

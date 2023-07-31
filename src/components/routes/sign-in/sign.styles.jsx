@@ -14,7 +14,7 @@ export const ContainerImageSignin = styled.div`
   width: 486px;
   height: 584px;
   margin-top: 120px;
-  margin-left: 240px;
+  margin-left: 210px;
 `;
 
 export const ContainerLogin = styled.div`

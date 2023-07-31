@@ -27,11 +27,11 @@ export const LogoContainer = styled(Link)`
 `;
 
 export const NavLinks = styled.div`
-  width: 624px;
+  width: 674px;
   height: 48px;
   display: flex;
   gap: 16px;
-  margin: 16px 120px 16px 0px;
+  margin: 16px 50px 16px 0px;
 `;
 
 export const NavLink = styled(Link)`
@@ -43,4 +43,15 @@ export const NavLink = styled(Link)`
   letter-spacing: 0.02em;
   text-decoration: none;
   cursor: pointer;
+`;
+
+export const Avatar = styled.div`
+  width: 45px;
+  height: 45px;
+  border: 1px solid #eeb4f5c5;
+  border-radius: 100%;
+  background-color: #eeb4f5c5;
+  img {
+    width: 100%;
+  }
 `;

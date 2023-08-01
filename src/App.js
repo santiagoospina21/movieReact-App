@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import Navigation from "./components/routes/navigation/navigation.component";
 import Home from "./components/routes/home/home.component";
@@ -10,6 +10,8 @@ import Movies from "./components/routes/movies/movies.component";
 import Favorites from "./components/routes/favorites/favorites.component";
 import SignIn from "./components/routes/sign-in/sign-in.component";
 import TvShows from "./components/routes/tvshows/tvshows.component";
+import Error404 from "./components/routes/Error/error.component";
+import Intro from "./components/routes/intro/intro.component";
 
 import { selectButtonState } from "./store/movies/movies.selector";
 import { selectCurrentUser } from "./store/user/user.selector";
@@ -34,6 +36,7 @@ function App() {
   const apiKey = "e1b22a6d327c893e2f41c1bc5b31242d";
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const buttonState = useSelector(selectButtonState);
   const currentUser = useSelector(selectCurrentUser);
   const likeCards = useSelector(selectLikeCards);
@@ -64,7 +67,7 @@ function App() {
         if (favoritesData) {
           dispatch(setLikeCards(favoritesData));
         }
-      } else {
+      } else if (currentUser === null) {
         dispatch(setLikeCards([]));
       }
     };
@@ -112,7 +115,9 @@ function App() {
           const tvShowsData = await tvShowsResponse.json();
 
           dispatch(setTvShows(tvShowsData.results));
-        } else if (buttonState === "all") {
+        }
+        //All
+        else if (buttonState === "all") {
           const movieResponse = await fetch(
             `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`
           );
@@ -136,18 +141,22 @@ function App() {
       fetchData();
     } catch (error) {
       console.error("Error al realizar la consulta a la API de TMDb:", error);
+      navigate("/404");
     }
   }, [buttonState]);
 
   return (
     <Routes>
+      <Route path="intro" element={<Intro />}></Route>
+      <Route index element={<Intro />} />
       <Route path="/" element={<Navigation />}>
-        <Route index element={<Home />} />
+        {/* <Route index element={<Home />} /> */}
         <Route path="home" element={<Home />} />
         <Route path="movies/*" element={<Movies />} />
         <Route path="tvshows/*" element={<TvShows />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="sign-in" element={<SignIn />}></Route>
+        <Route path="404" element={<Error404 />}></Route>
       </Route>
     </Routes>
   );

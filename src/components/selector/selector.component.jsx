@@ -1,8 +1,6 @@
 import { Selector, Option } from "./selector.styles";
 
 const SelectorComponent = ({ selectedGenre, handleGenreChange, type }) => {
-  if (type[0].original_title === undefined) return;
-
   return (
     <>
       {/*   {type[0].original_title ? (

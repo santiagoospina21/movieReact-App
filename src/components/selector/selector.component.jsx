@@ -1,7 +1,7 @@
 import { Selector, Option } from "./selector.styles";
 
 const SelectorComponent = ({ selectedGenre, handleGenreChange, type }) => {
-  const defaultGenreId = 28;
+  const defaultGenreId = 28; // El valor predeterminado que deseas asignar si type es undefined
 
   const genreId = type?.[0]?.original_title ? selectedGenre : defaultGenreId;
   return (

@@ -65,7 +65,7 @@ const MoviesList = () => {
     } catch (error) {
       console.log(`Error with the server: ${error}`);
     }
-  }, [selectedGenre, currentPage, searchField]);
+  }, [selectedGenre, currentPage, searchField, movies]);
 
   const handleGenreChange = (event) => {
     setSelectedGenre(event.target.value);

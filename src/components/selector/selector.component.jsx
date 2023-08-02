@@ -1,10 +1,13 @@
 import { Selector, Option } from "./selector.styles";
 
 const SelectorComponent = ({ selectedGenre, handleGenreChange, type }) => {
+  const defaultGenreId = 28;
+
+  const genreId = type?.[0]?.original_title ? selectedGenre : defaultGenreId;
   return (
     <>
       {type[0].original_title ? (
-        <Selector value={selectedGenre} onChange={handleGenreChange}>
+        <Selector value={genreId} onChange={handleGenreChange}>
           <Option value={28}>Action</Option>
           <Option value={12}>Adventure</Option>
           <Option value={16}>Animation</Option>

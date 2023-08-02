@@ -28,7 +28,7 @@ const Intro = () => {
       <Overlay />
       <ContainerTitle>
         <ContainerLogo>
-          <img src={Logo}></img>
+          <img src={Logo} alt="logo"></img>
           <Sanflix>Sanflix</Sanflix>
         </ContainerLogo>
         <h1>Movie Listing Web App</h1>

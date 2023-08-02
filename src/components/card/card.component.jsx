@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setMedia } from "../../store/movies/movies.reducer";
@@ -18,11 +18,12 @@ const Card = ({ movie, additionalData }) => {
   const posterBaseUrl = "https://image.tmdb.org/t/p/";
   const posterSize = "w500";
 
+  console.log(movie);
   const dispatch = useDispatch();
 
   const [isHovered, setIsHovered] = useState(false);
   const likeCards = useSelector(selectLikeCards);
-
+  console.log(likeCards);
   const [isLiked, setIsLiked] = useState(
     likeCards.some((card) => card.id === movie.id)
   );

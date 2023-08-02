@@ -40,7 +40,7 @@ const Navigation = () => {
   return (
     <Fragment>
       <NavigationContainer onClick={resetFilterData}>
-        <LogoContainer to="/">
+        <LogoContainer to="/home">
           <img src={logo} alt="logo"></img>
         </LogoContainer>
         <NavLinks>

@@ -5,7 +5,7 @@ const SelectorComponent = ({ selectedGenre, handleGenreChange, type }) => {
 
   return (
     <>
-      {type[0].original_title ? (
+      {/*   {type[0].original_title ? (
         <Selector value={selectedGenre} onChange={handleGenreChange}>
           <Option value={28}>Action</Option>
           <Option value={12}>Adventure</Option>
@@ -46,7 +46,7 @@ const SelectorComponent = ({ selectedGenre, handleGenreChange, type }) => {
           <Option value={10768}>War & Politics</Option>
           <Option value={37}>Western</Option>
         </Selector>
-      )}
+      )} */}
     </>
   );
 };

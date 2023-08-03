@@ -1,13 +1,31 @@
 import { Selector, Option } from "./selector.styles";
 
 const SelectorComponent = ({ selectedGenre, handleGenreChange, type }) => {
-  const defaultGenreId = 28; // El valor predeterminado que deseas asignar si type es undefined
-
-  const genreId = type?.[0]?.original_title ? selectedGenre : defaultGenreId;
+  /*  const genreMovies = [
+    { Action: 28 },
+    { Adventure: 12 },
+    { Animation:  },
+    { Comedy: 35 },
+    { Crime: 80 },
+    { Documentary: 99 },
+    { Drama: 18 },
+    { Family: 10751 },
+    { Fantasy: 14 },
+    { History: 36 },
+    { Horror: 27 },
+    { Music: 10402 },
+    { Mystery: 9648 },
+    { Romance: 10749 },
+    { ScienceFiction: 878 },
+    { TVMovie: 10770 },
+    { Thriller: 53 },
+    { War: 10752 },
+    { Western: 37 },
+  ]; */
   return (
     <>
-      {type[0].original_title ? (
-        <Selector value={genreId} onChange={handleGenreChange}>
+      {type[0]?.original_title ? (
+        <Selector value={selectedGenre} onChange={handleGenreChange}>
           <Option value={28}>Action</Option>
           <Option value={12}>Adventure</Option>
           <Option value={16}>Animation</Option>

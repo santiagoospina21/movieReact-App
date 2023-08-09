@@ -68,7 +68,7 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(setIsLoading(true));
-    console.log(isLoading);
+
     try {
       const response = await signInAuthUserWithEmailAndPassword(
         email,

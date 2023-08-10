@@ -156,7 +156,7 @@ function App() {
         <Route path="tvshows/*" element={<TvShows />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="sign-in" element={<SignIn />}></Route>
-        <Route path="404" element={<Error404 />}></Route>
+        <Route path="*" element={<Error404 />}></Route>
       </Route>
     </Routes>
   );

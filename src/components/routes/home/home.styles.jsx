@@ -48,8 +48,9 @@ export const AllContainer = styled.div`
   }
   @media screen and (max-width: 767px) {
     grid-template-columns: repeat(1, 1fr);
-    margin-left: 10%;
-    justify-content: center; /* Centrar horizontalmente */
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-items: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
   }
 `;

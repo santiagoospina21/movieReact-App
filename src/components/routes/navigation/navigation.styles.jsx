@@ -43,7 +43,7 @@ export const NavLinks = styled.div`
   margin: 16px 50px 16px 0px;
 
   @media screen and (max-width: 767px) {
-    width: 750px;
+    margin: 16px 0px 0px 0.5rem;
   }
 `;
 
@@ -51,14 +51,14 @@ export const NavLink = styled(Link)`
   color: #a8aebf;
   font-size: 16px;
   font-weight: 600;
-  line-height: 24px;
   padding: 10px 15px;
   letter-spacing: 0.02em;
   text-decoration: none;
   cursor: pointer;
 
   @media screen and (max-width: 767px) {
-    font-size: 14px;
+    font-size: 12px;
+    padding: 10px 6px;
   }
 `;
 

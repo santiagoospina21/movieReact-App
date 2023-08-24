@@ -16,13 +16,22 @@ export const NavigationContainer = styled.div`
 
 export const LogoContainer = styled(Link)`
   display: flex;
-  padding: 20px 0 20px 120px;
+  padding: 20px 0 20px 7%;
   width: 40px;
   height: 40px;
   img {
     width: 100%;
     height: 100%;
     padding-left: 120px;
+  }
+
+  @media screen and (max-width: 970px) {
+    padding: 20px 0 20px 10px;
+    img {
+      width: 0%;
+      height: 0%;
+      padding-left: 0px;
+    }
   }
 `;
 
@@ -32,6 +41,10 @@ export const NavLinks = styled.div`
   display: flex;
   gap: 16px;
   margin: 16px 50px 16px 0px;
+
+  @media screen and (max-width: 767px) {
+    width: 750px;
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -43,6 +56,10 @@ export const NavLink = styled(Link)`
   letter-spacing: 0.02em;
   text-decoration: none;
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 export const Avatar = styled.div`

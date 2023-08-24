@@ -18,7 +18,7 @@ export const ContainerIntro = styled.div`
   background-size: cover;
   background-position: center;
 
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
   }
 `;
@@ -36,6 +36,11 @@ export const Overlay = styled.div`
 export const ContainerLogo = styled.div`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 767px) {
+    align-self: center;
+    padding-right: 25%;
+  }
 `;
 
 export const Sanflix = styled.h2`
@@ -50,13 +55,12 @@ export const Sanflix = styled.h2`
   letter-spacing: -1.6px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     font-size: 70px;
   }
 
-  @media screen and (max-width: 380px) {
-    font-size: 50px;
-    padding-left: 2.5rem;
+  @media screen and (max-width: 767px) {
+    font-size: 60px;
   }
 `;
 
@@ -88,7 +92,7 @@ export const ContainerTitle = styled.div`
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1.5);
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     width: 40%;
     h1 {
       font-size: 70px;
@@ -99,9 +103,10 @@ export const ContainerTitle = styled.div`
     }
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 767px) {
     width: 80%;
     padding-left: 10%;
+    padding-top: 5%;
     h1 {
       font-size: 40px;
       text-align: center;
@@ -110,7 +115,7 @@ export const ContainerTitle = styled.div`
     img {
       width: 50px;
       height: 50px;
-      padding-left: 1rem;
+      padding-left: 17%;
     }
   }
 `;
@@ -123,15 +128,14 @@ export const ContainerButtons = styled.div`
   width: 100%;
   gap: 3rem;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1440px) {
     width: 40%;
     margin-left: 2%;
   }
 
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 767px) {
     width: 80%;
     margin-left: 10%;
-
     gap: 0px;
   }
 `;
@@ -142,7 +146,7 @@ export const ButtonExplore = styled(ButtonLogin)`
   color: #ebeef5;
   font-size: 1.2rem;
 
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 767px) {
     width: 250px;
   }
 `;
@@ -154,7 +158,7 @@ export const ButtonLogIn = styled(ButtonLogin)`
   color: #ebeef5;
   font-size: 1.2rem;
 
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 767px) {
     width: 250px;
   }
 `;

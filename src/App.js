@@ -150,7 +150,6 @@ function App() {
       <Route path="intro" element={<Intro />}></Route>
       <Route index element={<Intro />} />
       <Route path="/" element={<Navigation />}>
-        {/* <Route index element={<Home />} /> */}
         <Route path="home" element={<Home />} />
         <Route path="movies/*" element={<Movies />} />
         <Route path="tvshows/*" element={<TvShows />} />

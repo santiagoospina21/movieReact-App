@@ -28,6 +28,10 @@ export const ModalContainer = styled.div`
   height: 432px;
   background: rgba(18, 24, 41, 0.8);
   backdrop-filter: blur(20px);
+
+  @media screen and (max-width: 767px) {
+    width: 75%;
+  }
 `;
 
 export const ContainerSymbol = styled.div`
@@ -48,6 +52,10 @@ export const ContainerSymbol = styled.div`
 
   z-index: 1;
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    margin-left: 70%;
+  }
 `;
 
 export const CloseSymbol = styled.div`
@@ -70,6 +78,10 @@ export const TitleModal = styled.h1`
   font-size: 24px;
   line-height: 32px;
   letter-spacing: -0.36px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 16px;
+  }
 `;
 
 export const SpanModal = styled.span`
@@ -79,6 +91,11 @@ export const SpanModal = styled.span`
 
   font-size: 16px;
   line-height: 24px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+    padding: 0rem 2rem;
+  }
 `;
 
 export const ButtonModal = styled.button`
@@ -96,4 +113,8 @@ export const ButtonModal = styled.button`
   line-height: 24px;
 
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
 `;

@@ -17,6 +17,15 @@ export const Title = styled.div`
     line-height: 24px;
     color: #8e95a9;
   }
+  @media screen and (max-width: 767px) {
+    margin-left: 10%;
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 
 //Card
@@ -28,4 +37,17 @@ export const AllContainer = styled.div`
   width: 90%;
   margin-left: 6.5%;
   margin-top: 3rem;
+
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 10%;
+    column-gap: 6rem;
+  }
+  @media screen and (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 10%;
+  }
 `;

@@ -5,6 +5,10 @@ import SearchIcon from "../../img/search-normal.png";
 export const InputSearch = styled.div`
   margin-top: 40px;
   margin-left: 120px;
+
+  @media screen and (max-width: 767px) {
+    margin-left: 5%;
+  }
 `;
 
 export const Input = styled.input`
@@ -24,4 +28,7 @@ export const Input = styled.input`
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
+
+  @media screen and (max-width: 767px) {
+  }
 `;

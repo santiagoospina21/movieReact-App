@@ -13,6 +13,11 @@ export const ButtonsContainer = styled.div`
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(40px);
   border-radius: 12px;
+
+  @media screen and (max-width: 767px) {
+    margin-left: 8%;
+    width: 80%;
+  }
 `;
 export const ButtonAll = styled.div`
   display: flex;
@@ -31,6 +36,11 @@ export const ButtonAll = styled.div`
   letter-spacing: 0.02em;
   color: #ebe9fe;
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+    padding: 8px 24px;
+  }
 
   ${(props) =>
     props.active &&

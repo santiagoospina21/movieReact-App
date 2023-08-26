@@ -44,16 +44,26 @@ const Navigation = () => {
           <img src={logo} alt="logo"></img>
         </LogoContainer>
         <NavLinks>
-          <NavLink to="/movies">Movies</NavLink>
-          <NavLink to="/tvshows">TV Shows</NavLink>
-          <NavLink to="/favorites">Favorites</NavLink>
+          <NavLink to="/movies" currentUser={currentUser}>
+            Movies
+          </NavLink>
+          <NavLink to="/tvshows" currentUser={currentUser}>
+            TV Shows
+          </NavLink>
+          <NavLink to="/favorites" currentUser={currentUser}>
+            Favorites
+          </NavLink>
           {currentUser ? (
             <Fragment>
-              <NavLink as="span" onClick={signOutUser}>
+              <NavLink
+                as="span"
+                onClick={signOutUser}
+                currentUser={currentUser}
+              >
                 Sign Out
               </NavLink>
 
-              <NavLink>
+              <NavLink currentUser={currentUser}>
                 {currentUser.displayName &&
                   currentUser.displayName.split(" ")[0]}
               </NavLink>

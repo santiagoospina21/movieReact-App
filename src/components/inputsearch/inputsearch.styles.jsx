@@ -4,10 +4,11 @@ import SearchIcon from "../../img/search-normal.png";
 
 export const InputSearch = styled.div`
   margin-top: 40px;
-  margin-left: 120px;
+  margin-left: 6.5%;
 
   @media screen and (max-width: 767px) {
-    margin-left: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 `;
 
@@ -30,5 +31,6 @@ export const Input = styled.input`
   font-size: 14px;
 
   @media screen and (max-width: 767px) {
+    width: 95%;
   }
 `;

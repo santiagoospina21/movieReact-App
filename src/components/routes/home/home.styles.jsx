@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Title = styled.div`
   color: white;
   margin-top: 40px;
-  margin-left: 120px;
+  margin-left: 6.5%;
 
   h1 {
     font-weight: 600;
@@ -19,12 +19,18 @@ export const Title = styled.div`
   }
   @media screen and (max-width: 767px) {
     margin-left: 10%;
+    margin-right: 10%;
     h1 {
       font-size: 3rem;
     }
     p {
       font-size: 14px;
     }
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 `;
 

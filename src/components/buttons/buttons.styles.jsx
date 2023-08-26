@@ -6,7 +6,7 @@ export const ButtonsContainer = styled.div`
 
   padding: 8px;
   margin-top: 20px;
-  margin-left: 120px;
+  margin-left: 6.5%;
   width: 368px;
   height: 56px;
 
@@ -15,7 +15,7 @@ export const ButtonsContainer = styled.div`
   border-radius: 12px;
 
   @media screen and (max-width: 767px) {
-    margin-left: 8%;
+    margin-left: 10%;
     width: 80%;
   }
 `;

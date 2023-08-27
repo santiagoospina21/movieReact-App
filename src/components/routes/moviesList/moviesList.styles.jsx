@@ -74,6 +74,10 @@ export const PaginationContainer = styled(ReactPaginate)`
   color: white;
   list-style: none;
 
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
+
   .active {
     padding: 8px 15px;
     background-color: #2e3c62;

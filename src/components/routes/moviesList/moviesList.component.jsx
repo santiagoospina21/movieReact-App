@@ -29,6 +29,8 @@ import {
   PaginationContainer,
 } from "./moviesList.styles";
 
+import MediaQuery from "react-responsive";
+
 const MoviesList = () => {
   const dispatch = useDispatch();
 
@@ -144,20 +146,24 @@ const MoviesList = () => {
         />
       </AllContainer>
 
-      <PaginationContainer
-        previousLabel={"< Previous"}
-        nextLabel={" Next >"}
-        pageCount={filterPagesCount}
-        forcePage={currentPage - 1}
-        pageRangeDisplayed={5}
-        marginPagesDisplayed={2}
-        onPageChange={handlePageChange}
-        activeClassName={"active"}
-        pageClassName={"pagination-page"}
-        previousClassName={"pagination-page"}
-        nextClassName={"pagination-page"}
-        breakClassName={"pagination-page"}
-      />
+      <MediaQuery maxWidth={767}>
+        {(matches) => (
+          <PaginationContainer
+            previousLabel={matches ? "<" : "< Previous"}
+            nextLabel={matches ? ">" : " Next >"}
+            pageCount={filterPagesCount}
+            forcePage={currentPage - 1}
+            pageRangeDisplayed={matches ? 3 : 5}
+            marginPagesDisplayed={matches ? 1 : 2}
+            onPageChange={handlePageChange}
+            activeClassName={"active"}
+            pageClassName={"pagination-page"}
+            previousClassName={"pagination-page"}
+            nextClassName={"pagination-page"}
+            breakClassName={"pagination-page"}
+          />
+        )}
+      </MediaQuery>
     </div>
   );
 };

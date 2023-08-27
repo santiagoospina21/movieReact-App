@@ -13,6 +13,14 @@ export const Selector = styled.select`
   line-height: 16px;
   margin-top: 2.5rem;
   margin-left: 7rem;
+
+  @media screen and (max-width: 767px) {
+    margin-left: auto;
+    margin-right: auto;
+
+    /*   margin-left: 10%; */
+    width: 200px;
+  }
 `;
 
 export const Option = styled.option`

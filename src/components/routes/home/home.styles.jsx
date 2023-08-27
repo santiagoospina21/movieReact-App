@@ -50,6 +50,7 @@ export const AllContainer = styled.div`
   @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
     margin-left: 10%;
+    margin-right: 10%;
     column-gap: 6rem;
   }
   @media screen and (max-width: 767px) {

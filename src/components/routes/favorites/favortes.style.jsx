@@ -39,6 +39,7 @@ export const ContainerEmpty = styled.div`
       font-size: 14px;
       margin-left: 5%;
       margin-right: 5%;
+      margin-bottom: 5%;
     }
   }
 `;

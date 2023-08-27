@@ -25,6 +25,7 @@ export const MoviesTitle = styled(Title)`
     }
     h1 {
       margin-left: 5%;
+      font-size: 2.5rem;
     }
   }
 `;

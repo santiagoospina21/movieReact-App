@@ -21,4 +21,24 @@ export const ContainerEmpty = styled.div`
 
     line-height: 24px;
   }
+
+  @media screen and (max-width: 767px) {
+    img {
+      width: 70%;
+    }
+
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    span {
+      text-align: center;
+      font-size: 14px;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+  }
 `;

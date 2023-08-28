@@ -66,7 +66,7 @@ export const ContainerLogin = styled.div`
     margin-right: 0px;
     span {
       font-size: 40px;
-      margin-left: 10%;
+      margin-left: 15%;
     }
   }
 `;
@@ -99,8 +99,8 @@ export const FormLogin = styled.form`
   }
 
   @media screen and (max-width: 926px) {
-    margin-left: 10%;
-    margin-right: 30%;
+    margin-left: 15%;
+    margin-right: 25%;
   }
 `;
 

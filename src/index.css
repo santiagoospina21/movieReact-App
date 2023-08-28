@@ -3,6 +3,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-image: url("./img/Vector.png");
   background-color: #121829;
+  box-sizing: border-box;
 }
 
 code {

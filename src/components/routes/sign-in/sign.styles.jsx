@@ -6,15 +6,36 @@ import Password from "../../../img/password-icon.svg";
 export const ContainerSignin = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-content: center;
 
   width: 100%;
+
+  @media screen and (max-width: 926px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const ContainerImageSignin = styled.div`
   width: 486px;
   height: 584px;
   margin-top: 120px;
-  margin-left: 210px;
+
+  @media screen and (max-width: 1440px) {
+    margin-top: 60px;
+  }
+
+  @media screen and (max-width: 1330px) {
+    width: 0px;
+    height: 0px;
+    img {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-top: 0px;
+  }
 `;
 
 export const ContainerLogin = styled.div`
@@ -31,6 +52,22 @@ export const ContainerLogin = styled.div`
     line-height: 80px;
     letter-spacing: -1.28px;
     padding-bottom: 40px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+
+  @media screen and (max-width: 926px) {
+    margin-top: 5%;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    span {
+      font-size: 40px;
+      margin-left: 10%;
+    }
   }
 `;
 
@@ -60,6 +97,11 @@ export const FormLogin = styled.form`
     background-image: url(${Email});
     background-position: left 16px center;
   }
+
+  @media screen and (max-width: 926px) {
+    margin-left: 10%;
+    margin-right: 30%;
+  }
 `;
 
 export const ButtonViewOn = styled.button`
@@ -71,6 +113,10 @@ export const ButtonViewOn = styled.button`
   border: none;
   cursor: pointer;
   padding: 8px;
+
+  @media screen and (max-width: 767px) {
+    transform: translateY(-60%);
+  }
 `;
 
 export const ButtonLogin = styled.button`
@@ -94,6 +140,11 @@ export const ButtonsContainer = styled.div`
   display: flex;
   width: 334px;
   gap: 20px;
+
+  @media screen and (max-width: 767px) {
+    width: 250px;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const FormSignUp = styled(FormLogin)`
@@ -111,6 +162,11 @@ export const ButtonSignUp = styled(ButtonLogin)`
   border: 2px solid var(--primary-400, #2689d9);
 
   width: 334px;
+
+  @media screen and (max-width: 767px) {
+    width: 250px;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const ButtonGoogle = styled(ButtonLogin)`

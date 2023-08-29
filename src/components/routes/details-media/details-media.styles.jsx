@@ -26,6 +26,11 @@ export const Backdrop = styled.div`
     object-fit: contain;
     opacity: 0.8;
   }
+
+  @media screen and (max-width: 931px) {
+    width: 90%;
+    height: auto;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -53,6 +58,13 @@ export const TitleContainer = styled.div`
     font-weight: 400;
     line-height: 16px;
   }
+  @media screen and (max-width: 931px) {
+    width: 50%;
+    left: 20%;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -64,6 +76,11 @@ export const Title = styled.h1`
   font-weight: 600;
   line-height: 40px;
   letter-spacing: -0.64px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 0.8rem;
+    line-height: 30px;
+  }
 `;
 
 export const Container = styled.div`
@@ -76,15 +93,37 @@ export const Container = styled.div`
 
   img {
     width: 100%;
-    height: auto;
-    max-width: 480px; /* Cambio realizado aquí */
+    height: 100%;
+    object-fit: contain;
+    max-width: 480px;
     max-height: 100%;
     border-radius: 24px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    width: 80%;
+    margin-left: 15%;
+    margin-right: 10%;
+    img {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 100px;
+
+    img {
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
 `;
 
 export const ContainerInfo = styled.div`
-  display: flex; /* Cambiado a flex */
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
@@ -96,6 +135,12 @@ export const ContainerInfo = styled.div`
     color: var(--grey-400, #767e94);
     font-size: 16px;
   }
+
+  @media screen and (max-width: 767px) {
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 `;
 
 export const Overview = styled.div`
@@ -106,6 +151,10 @@ export const Overview = styled.div`
   font-weight: 400;
   line-height: 32px;
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 737px) {
+    font-size: 1rem;
+  }
 `;
 
 export const VoteDetails = styled(Vote)`
@@ -120,4 +169,8 @@ export const Prueba = styled.div`
 export const Type = styled.div`
   color: var(--grey-100, #c3c8d4);
   font-size: 1.1rem;
+
+  @media screen and (max-width: 737px) {
+    font-size: 1rem;
+  }
 `;
